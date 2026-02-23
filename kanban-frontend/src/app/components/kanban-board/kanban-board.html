@@ -1,0 +1,117 @@
+<div class="kanban-container">
+  <header>
+    <h1>Tablero Kanban</h1>
+
+    <div class="add-task-form">
+      <input
+        type="text"
+        [(ngModel)]="newTask.title"
+        placeholder="¿Qué hay que hacer?"
+        class="input-title"
+      />
+      <input
+        type="text"
+        [(ngModel)]="newTask.description"
+        placeholder="Añade una descripción..."
+        class="input-desc"
+      />
+      <button (click)="addTask()" class="btn-add">Añadir Tarea</button>
+    </div>
+  </header>
+
+  <div class="board">
+
+    <div class="column">
+      <div class="column-header todo">PENDIENTES</div>
+      <div class="task-list">
+        @for (task of getTasksByStatus('TODO'); track task.id) {
+          <div class="task-card">
+            @if (editingTaskId === task.id) {
+              <div class="edit-mini-form">
+                <input [(ngModel)]="editForm.title" class="edit-input-title" />
+                <textarea [(ngModel)]="editForm.description" class="edit-input-desc"></textarea>
+                <div class="card-actions">
+                  <button (click)="saveEdit(task.id)" class="btn-save">Guardar</button>
+                  <button (click)="cancelEdit()" class="btn-cancel">Cancelar</button>
+                </div>
+              </div>
+            } @else {
+              <h3>{{ task.title }}</h3>
+              <p>{{ task.description }}</p>
+              <span class="task-date">Creada el: {{ task.created_at | date:'dd/MM/yy HH:mm' }}</span>
+              <div class="card-actions">
+                <button (click)="onEditTask(task)" class="btn-edit">Editar ✏️</button>
+                <button (click)="updateStatus(task.id, 'DOING')" class="btn-next">Empezar →</button>
+              </div>
+            }
+          </div>
+        } @empty {
+          <p class="empty-msg">No hay tareas pendientes.</p>
+        }
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="column-header doing">EN PROCESO</div>
+      <div class="task-list">
+        @for (task of getTasksByStatus('DOING'); track task.id) {
+          <div class="task-card card-doing">
+            @if (editingTaskId === task.id) {
+              <div class="edit-mini-form">
+                <input [(ngModel)]="editForm.title" class="edit-input-title" />
+                <textarea [(ngModel)]="editForm.description" class="edit-input-desc"></textarea>
+                <div class="card-actions">
+                  <button (click)="saveEdit(task.id)" class="btn-save">Guardar</button>
+                  <button (click)="cancelEdit()" class="btn-cancel">Cancelar</button>
+                </div>
+              </div>
+            } @else {
+              <h3>{{ task.title }}</h3>
+              <p>{{ task.description }}</p>
+              <span class="task-date">Creada el: {{ task.created_at | date:'dd/MM/yy HH:mm' }}</span>
+              <div class="card-actions">
+                <button (click)="updateStatus(task.id, 'TODO')" class="btn-back">← Volver</button>
+                <button (click)="onEditTask(task)" class="btn-edit">Editar ✏️</button>
+                <button (click)="updateStatus(task.id, 'DONE')" class="btn-next">Terminar →</button>
+              </div>
+            }
+          </div>
+        } @empty {
+          <p class="empty-msg">No hay nada en marcha.</p>
+        }
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="column-header done">TERMINADAS</div>
+      <div class="task-list">
+        @for (task of getTasksByStatus('DONE'); track task.id) {
+          <div class="task-card card-done">
+            @if (editingTaskId === task.id) {
+              <div class="edit-mini-form">
+                <input [(ngModel)]="editForm.title" class="edit-input-title" />
+                <textarea [(ngModel)]="editForm.description" class="edit-input-desc"></textarea>
+                <div class="card-actions">
+                  <button (click)="saveEdit(task.id)" class="btn-save">Guardar</button>
+                  <button (click)="cancelEdit()" class="btn-cancel">Cancelar</button>
+                </div>
+              </div>
+            } @else {
+              <h3>{{ task.title }}</h3>
+              <p>{{ task.description }}</p>
+              <span class="task-date">Creada el: {{ task.created_at | date:'dd/MM/yy HH:mm' }}</span>
+              <div class="card-actions">
+                <button (click)="updateStatus(task.id, 'DOING')" class="btn-back">← Reabrir</button>
+                <button (click)="onEditTask(task)" class="btn-edit">Editar ✏️</button>
+                <button (click)="deleteTask(task.id)" class="btn-delete">Eliminar 🗑️</button>
+              </div>
+            }
+          </div>
+        } @empty {
+          <p class="empty-msg">Todavía no has terminado nada.</p>
+        }
+      </div>
+    </div>
+
+  </div>
+</div>

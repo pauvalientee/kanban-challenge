@@ -1,0 +1,38 @@
+<div class="login-container">
+  <div class="login-card">
+    <h2>Crear Cuenta</h2>
+
+    <form (ngSubmit)="onRegister()">
+      <div class="form-group">
+        <label>Usuario</label>
+        <input type="text" name="username" [(ngModel)]="newUser.username" required placeholder="Ej: Manolo">
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="email" [(ngModel)]="newUser.email" required placeholder="pepe@test.com">
+      </div>
+
+      <div class="form-group">
+        <label>Contraseña</label>
+        <input type="password" name="password" [(ngModel)]="newUser.password" required placeholder="******">
+      </div>
+
+      @if (successMessage) {
+        <p class="success">{{ successMessage }}</p>
+      }
+
+      @if (errorMessage) {
+        <p class="error">{{ errorMessage }}</p>
+      }
+
+      <button type="submit" class="btn-login" [disabled]="successMessage">
+        {{ successMessage ? 'Registrado' : 'Registrarse' }}
+      </button>
+
+      <div style="margin-top: 1rem; text-align: center;">
+        <a routerLink="/login" style="font-size: 0.8rem; color: #2563eb;">¿Ya tienes cuenta? Inicia sesión</a>
+      </div>
+    </form>
+  </div>
+</div>

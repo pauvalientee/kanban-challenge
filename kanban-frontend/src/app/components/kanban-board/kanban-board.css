@@ -1,0 +1,220 @@
+.kanban-container {
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header {
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin-bottom: 1.5rem;
+}
+
+.add-task-form {
+  display: flex;
+  gap: 0.5rem;
+  background: #fff;
+  padding: 0.75rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  flex-wrap: wrap;
+}
+
+.add-task-form input {
+  border: 1px solid #f3f4f6;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  flex: 1;
+  min-width: 200px;
+}
+
+.board {
+  display: flex;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.column {
+  background-color: #f3f4f6;
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  flex: 1;
+  min-width: 300px;
+}
+
+.column-header {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
+
+.task-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.task-card h3 {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.task-card p {
+  font-size: 0.85rem;
+  color: #4b5563;
+  margin-bottom: 1rem;
+}
+
+.task-date {
+  display: block;
+  font-size: 0.7rem;
+  color: #9ca3af;
+  margin-bottom: 0.8rem;
+  font-style: italic;
+}
+
+.edit-mini-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.edit-input-title {
+  font-weight: 700;
+  border: 1px solid #2563eb;
+  padding: 6px;
+  border-radius: 4px;
+  width: 100%;
+  font-size: 0.95rem;
+}
+
+.edit-input-desc {
+  font-family: inherit;
+  font-size: 0.85rem;
+  border: 1px solid #d1d5db;
+  padding: 6px;
+  border-radius: 4px;
+  width: 100%;
+  min-height: 60px;
+  resize: vertical;
+}
+
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.card-actions button {
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.5rem 0.7rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid #e5e7eb;
+}
+
+.btn-add {
+  background-color: #059669;
+  color: white;
+  border: 1px solid #047857;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-add:hover {
+  background-color: #047857;
+}
+
+.btn-edit {
+  background-color: #ffffff;
+  color: #4b5563;
+  border: 1px solid #d1d5db;
+}
+
+.btn-edit:hover {
+  background-color: #f3f4f6;
+  border-color: #9ca3af;
+  color: #111827;
+}
+
+.btn-save {
+  background-color: #2563eb;
+  color: white;
+  border: 1px solid #1d4ed8;
+}
+
+.btn-save:hover {
+  background-color: #1d4ed8;
+}
+
+.btn-cancel {
+  background-color: #f3f4f6;
+  color: #4b5563;
+}
+
+.btn-next {
+  background: #ffffff;
+  color: #2563eb;
+  border-color: #dbeafe;
+}
+
+.btn-next:hover {
+  background: #eff6ff;
+  border-color: #2563eb;
+}
+
+.btn-back {
+  background: #f9fafb;
+  color: #4b5563;
+}
+
+.btn-back:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.btn-delete {
+  background: #ffffff;
+  color: #dc2626;
+  border-color: #fee2e2;
+}
+
+.btn-delete:hover {
+  background: #fef2f2;
+  border-color: #dc2626;
+}
+
+@media (max-width: 900px) {
+  .board {
+    flex-direction: column;
+  }
+
+  .column {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .add-task-form {
+    flex-direction: column;
+  }
+
+  .add-task-form input, .btn-add {
+    width: 100%;
+  }
+}
