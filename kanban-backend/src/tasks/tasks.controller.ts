@@ -13,7 +13,6 @@ import { TasksService } from './tasks.service';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth/jwt-auth.guard';
 
-// Interfaz para evitar errores de ESLint con 'any'
 interface RequestWithUser extends Request {
   user: {
     userId: number;

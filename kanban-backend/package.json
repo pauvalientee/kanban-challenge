@@ -2,7 +2,7 @@
   "name": "kanban-backend",
   "version": "0.0.1",
   "description": "",
-  "author": "",
+  "author": "Pau Valiente",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
@@ -32,6 +32,7 @@
     "mysql2": "^3.18.0",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
+    "pg": "^8.18.0",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1",
     "typeorm": "^0.3.28"
