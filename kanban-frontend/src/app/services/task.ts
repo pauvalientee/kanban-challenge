@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class TaskService {
   private http = inject(HttpClient);
-  private apiUrl = 'http://localhost:3000/api/tasks';
+  private apiUrl = 'https://kanban-challenge-muxq.onrender.com/api/tasks';
 
   getTasks(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);

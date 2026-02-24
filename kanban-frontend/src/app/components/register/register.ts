@@ -22,7 +22,7 @@ export class RegisterComponent {
   };
 
   errorMessage = '';
-  successMessage = ''; // <-- Nueva variable para el aviso
+  successMessage = '';
 
   onRegister() {
     this.errorMessage = '';
