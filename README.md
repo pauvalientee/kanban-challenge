@@ -48,6 +48,3 @@ En cumplimiento con las reglas del challenge, se declara el uso de la herramient
 ## Limitaciones Conocidas
 * El movimiento de tareas entre estados se gestiona mediante controles de accion manual. La funcionalidad de arrastrar y soltar (Drag and Drop) no se encuentra disponible en esta version.
 * La aplicacion depende de una conexion activa con el servidor de base de datos para la visualizacion del tablero.
-
-## Despliegue
-URL Publica del proyecto: [INTRODUCIR AQUI LA URL DE VERCEL O RENDER]
